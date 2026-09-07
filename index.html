@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚗️ A Forja da Amônia</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+<section id="telaInicial" class="tela ativa">
+    <div class="painel-inicial">
+        <h1>⚗️ A Forja da Amônia</h1>
+        <h2>Os 15 Selos da Estequiometria</h2>
+
+        <p>
+            O mundo de <strong>Periódica</strong> está enfrentando uma crise.
+            A <strong>Entropia</strong> desorganizou os registros químicos da
+            Grande Forja de Nitrogênio, colocando em risco a produção de
+            amônia, fertilizantes e alimentos.
+        </p>
+
+        <p>
+            Você é um <strong>Aprendiz de Químico</strong> enviado para
+            recuperar os 15 Selos da Estequiometria. Cada território apresenta
+            três desafios: fácil, médio e difícil.
+        </p>
+
+        <p>
+            Ao avançar, você conquistará Selos e Códigos da Forja. No final,
+            será necessário usar os fragmentos secretos para reativar a
+            Grande Forja de Haber-Bosch.
+        </p>
+
+        <p>
+            Cada ⚛ representa sua estabilidade. Use seu conhecimento com
+            cuidado: erros consomem estabilidade, mas a ciência oferece
+            uma última chance.
+        </p>
+
+        <button id="botaoIniciar">Iniciar jornada</button>
+    </div>
+</section>
+
+
+<main id="telaJogo" class="tela">
+
+    <header class="cabecalho">
+        <div class="titulo-jogo">
+            <h1>⚗️ A Forja da Amônia</h1>
+            <p id="localAtual">Vila das Massas</p>
+        </div>
+
+        <div class="estabilidade">
+            <span>Estabilidade:</span>
+            <div id="vidas">
+                <span class="vida">⚛</span>
+                <span class="vida">⚛</span>
+                <span class="vida">⚛</span>
+            </div>
+        </div>
+
+        <div class="codigo-area">
+            <span>Selos:</span>
+            <div id="fragmentos">0 / 15</div>
+        </div>
+    </header>
+
+    <section class="area-principal">
+
+        <div class="mapa-area">
+            <div id="mapaContainer">
+
+                <img src="img/mapa.png" alt="Mapa da jornada química" id="mapa">
+
+                <img src="img/alquimista.png" alt="Alquimista" id="jogador">
+
+                <img src="img/entropia.png" alt="Entropia" id="entropia">
+
+                <div class="marcador" data-mapa="1">1</div>
+                <div class="marcador" data-mapa="2">2</div>
+                <div class="marcador" data-mapa="3">3</div>
+                <div class="marcador" data-mapa="4">4</div>
+                <div class="marcador" data-mapa="5">5</div>
+                <div class="marcador" data-mapa="6">6</div>
+                <div class="marcador" data-mapa="7">7</div>
+                <div class="marcador" data-mapa="8">8</div>
+                <div class="marcador" data-mapa="9">9</div>
+                <div class="marcador" data-mapa="10">10</div>
+                <div class="marcador" data-mapa="11">11</div>
+                <div class="marcador" data-mapa="12">12</div>
+                <div class="marcador" data-mapa="13">13</div>
+                <div class="marcador" data-mapa="14">14</div>
+                <div class="marcador" data-mapa="15">15</div>
+
+                <div id="efeitoVisual"></div>
+            </div>
+        </div>
+
+        <aside class="painel-lateral">
+
+            <div class="narrativa">
+                <p id="textoNarrativa">A jornada está prestes a começar.</p>
+            </div>
+
+            <div id="cardDesafio" class="card-desafio">
+
+                <div class="card-frente">
+                    <div class="cabecalho-desafio">
+                        <h2 id="tituloNivel">Desafio</h2>
+                        <span id="indicadorDificuldade" class="dificuldade-badge">FÁCIL</span>
+                    </div>
+
+                    <p id="pergunta">Pergunta do desafio.</p>
+                    <div id="alternativas"></div>
+
+                    <button id="botaoConfirmar" disabled>Confirmar decisão</button>
+                </div>
+
+                <div class="card-verso">
+                    <h2 id="resultadoTitulo">Resultado</h2>
+                    <p id="resultadoTexto">Resultado da decisão.</p>
+                    <div id="fragmentoEncontrado"></div>
+
+                    <button id="botaoContinuar">Continuar jornada</button>
+                </div>
+
+            </div>
+        </aside>
+
+    </section>
+</main>
+
+
+<section id="telaUltimaChance" class="tela">
+    <div class="painel-ultima-chance">
+        <h1>⚠️ ESTABILIDADE DA FORJA ESGOTADA</h1>
+
+        <p>
+            Todos os seus átomos de estabilidade foram consumidos.
+            Entropia está prestes a dominar a Forja de Nitrogênio.
+        </p>
+
+        <p>
+            Mas a ciência oferece uma última oportunidade:
+            resolva o desafio e recupere um átomo de estabilidade.
+        </p>
+
+        <div class="desafio-recuperacao">
+            <h2>Desafio de Recuperação</h2>
+            <p id="perguntaRecuperacao"></p>
+            <div id="alternativasRecuperacao"></div>
+            <button id="botaoRecuperacao" disabled>
+                Tentar recuperar estabilidade
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<section id="telaDerrota" class="tela">
+    <div class="mapa-derrota">
+        <img src="img/mapa.png" alt="Periódica dominada pela Entropia">
+    </div>
+
+    <div class="filtro-entropia"></div>
+
+    <div class="entropia-final">
+        <img src="img/entropia.png" alt="Entropia dominando o reino">
+
+        <div class="fala-entropia">
+            <h1>ENTROPIA VENCEU</h1>
+            <p id="falaEntropia">
+                A ordem da matéria se dissolveu...
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section id="telaPortal" class="tela">
+    <div class="painel-portal">
+        <h1>🔐 Grande Forja de Haber-Bosch</h1>
+
+        <p>
+            Os 15 Selos da Estequiometria foram conquistados.
+            Os três últimos fragmentos precisam ser organizados para
+            reativar a Forja.
+        </p>
+
+        <div id="senhaReferencia" class="senha-referencia">C — H — 34</div>
+
+        <input
+            type="text"
+            id="campoSenha"
+            placeholder="Digite a sequência dos fragmentos"
+            autocomplete="off"
+        >
+
+        <button id="botaoAbrirPortal">Abrir Forja</button>
+
+        <div id="comparacaoSenha"></div>
+        <p id="mensagemPortal"></p>
+    </div>
+</section>
+
+
+<section id="telaFinal" class="tela">
+    <div class="painel-final">
+        <h1 id="tituloFinal">🏆 Jornada concluída</h1>
+        <p id="textoFinal"></p>
+        <div id="estatisticasFinais"></div>
+        <button id="botaoReiniciar">Jogar novamente</button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
